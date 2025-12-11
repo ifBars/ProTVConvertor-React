@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from './ui/dialog';
-import { useConverterStore } from '../hooks/useConverterStore';
 import { toast } from 'sonner';
 
 interface ApiKeySettingsProps {
