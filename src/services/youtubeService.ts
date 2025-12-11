@@ -180,7 +180,4 @@ class YouTubeService {
 }
 
 // Export the service as a singleton
-export const youtubeService = new YouTubeService();
-
-// Export types
-export type { YouTubeVideo }; 
+export const youtubeService = new YouTubeService(); 

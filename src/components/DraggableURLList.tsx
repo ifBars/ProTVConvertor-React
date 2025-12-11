@@ -1,13 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { URLList } from './URLList';
 import { useConverterStore } from '../hooks/useConverterStore';
 import { URLEditDialog } from './URLEditDialog';
-
-interface DraggableItem {
-  id: string;
-  index: number;
-}
 
 interface URLItem {
   id: string;
@@ -94,7 +88,7 @@ function DraggableURLItem({ id, index, url, moveItem, onEdit }: DraggableURLItem
     <div
       ref={dragDropRef}
       className={`cursor-move ${isDragging ? 'opacity-50' : 'opacity-100'}`}
-      onClick={(e) => {
+      onClick={() => {
         // Prevent triggering edit when trying to drag
         if (!isDragging) {
           onEdit();

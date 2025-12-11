@@ -5,14 +5,6 @@ export interface VideoItem extends YouTubeVideo {
   customName?: string;
 }
 
-interface URLItem {
-  id: string;
-  url: string;
-  title?: string;
-  thumbnailUrl?: string;
-  customName?: string;
-}
-
 interface ConverterStore {
   // State
   urls: VideoItem[];
@@ -90,8 +82,6 @@ export const useConverterStore = create<ConverterStore>((set, get) => ({
     const playlistVideos = await youtubeService.getPlaylistVideos(playlistIdOrUrl);
     if (!playlistVideos.length) return 0;
 
-    const initialCount = get().urls.length;
-
     // If using custom names, we won't automatically add them
     if (get().useCustomNames) {
       // Return the playlist videos for the UI to handle custom naming
@@ -161,7 +151,7 @@ export const useConverterStore = create<ConverterStore>((set, get) => ({
       
       // Handle thumbnail downloads if enabled
       if (get().downloadThumbnails) {
-        for (const [index, video] of get().urls.entries()) {
+        for (const [, video] of get().urls.entries()) {
           if (video.thumbnailUrl) {
             const thumbnail = await youtubeService.downloadThumbnail(video);
             if (thumbnail) {

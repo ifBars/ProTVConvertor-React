@@ -13,7 +13,6 @@ interface ApiKeySettingsProps {
 export function ApiKeySettings({ isOpen, onClose }: ApiKeySettingsProps) {
   const [apiKey, setApiKey] = useState('');
   const [isValidating, setIsValidating] = useState(false);
-  const { darkMode } = useConverterStore();
 
   const handleSave = async () => {
     if (!apiKey.trim()) {

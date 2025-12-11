@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from './ui/dialog';
-import { useConverterStore } from '../hooks/useConverterStore';
 
 interface Video {
   id: string;
@@ -23,7 +22,6 @@ export function CustomNamingModal({ isOpen, onClose, videos, onSave }: CustomNam
   const [customNames, setCustomNames] = useState<Record<string, string>>({});
   const [searchTerm, setSearchTerm] = useState('');
   const [pattern, setPattern] = useState('');
-  const { darkMode } = useConverterStore();
 
   useEffect(() => {
     // Initialize custom names with original titles
